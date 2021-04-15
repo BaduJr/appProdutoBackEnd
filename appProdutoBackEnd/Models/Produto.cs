@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace appProdutoBackEnd.Models
 {
+
+    [Table("tblproduto")]
     public class Produto
     {
         public Int64 id { get; set; }

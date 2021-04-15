@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using appProdutoBackEnd.Models;
-using appProdutoBackEnd.DAO;
 
 namespace appProdutoBackEnd.Controllers
 {
@@ -16,20 +15,17 @@ namespace appProdutoBackEnd.Controllers
     public class ProdutoController : ControllerBase
     {
         private readonly AppDbContext _context;
-        //private ProdutoDAO produtoDAO;
 
         public ProdutoController(AppDbContext context)
         {
             _context = context;
-            //produtoDAO = new ProdutoDAO(context);
         }
 
         // GET: api/Produto
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Produto>>> GetProduto()
         {
-            return await  _context.Produto.ToListAsync();
-            //return await produtoDAO.ObterTodos();
+            return await _context.Produto.ToListAsync();
         }
 
         // GET: api/Produto/5
@@ -37,7 +33,6 @@ namespace appProdutoBackEnd.Controllers
         public async Task<ActionResult<Produto>> GetProduto(long id)
         {
             var produto = await _context.Produto.FindAsync(id);
-            //Produto produto = await produtoDAO.ObterProdutoPorId(id);
 
             if (produto == null)
             {

@@ -37,7 +37,7 @@ namespace appProdutoBackEnd.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Produto");
+                    b.ToTable("tblproduto");
                 });
 #pragma warning restore 612, 618
         }
